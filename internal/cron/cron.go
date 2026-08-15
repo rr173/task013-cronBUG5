@@ -216,7 +216,7 @@ func (s Schedule) Next(from time.Time) (time.Time, error) {
 	yearMax := t.Year() + searchYears
 	for t.Year() <= yearMax {
 		if !s.month.match(int(t.Month())) {
-			t = time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, loc).AddDate(0, 1, 0)
+			t = time.Date(t.Year(), t.Month(), 1, 0, 0, 0, 0, loc).AddDate(0, 1, 0)
 			continue
 		}
 		if !s.dayMatch(t) {
